@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-<title>Wait For It... ❤️</title>
+<title>For My Jaan ❤️ | 2026 Journey</title>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;1,600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -16,6 +16,19 @@ body {
   color:#fff; font-family: 'Poppins', sans-serif;
 }
 
+/* --- THE HEADER (CLOCK, TIMER, DATE) --- */
+.header-info {
+    position: fixed; top: 15px; width: 95%;
+    display: flex; justify-content: center; gap: 10px; z-index: 100;
+}
+.info-pill {
+    background: var(--glass); backdrop-filter: blur(10px);
+    padding: 8px 15px; border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1); text-align: center;
+}
+.pill-label { font-size: 0.55rem; text-transform: uppercase; color: var(--rose-pink); font-weight: 600; letter-spacing: 1px; }
+.pill-value { font-size: 0.9rem; font-weight: 400; color: #fff; }
+
 /* --- CINEMATIC NEBULA --- */
 .nebula {
     position: fixed; top: -50%; left: -50%; width: 200%; height: 200%; z-index: -2;
@@ -25,49 +38,31 @@ body {
 #neb2 { background: radial-gradient(circle, rgba(44, 16, 85, 0.4), transparent 50%); animation: drift 40s infinite alternate-reverse; }
 @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(10%, 10%) scale(1.2); } }
 
-/* --- SUBTLE SIGNATURE (PRIYANSHU CHAUHAN) --- */
 .signature {
     position: fixed; bottom: 15px; left: 15px;
-    font-size: 0.6rem; font-family: 'Poppins', sans-serif;
-    color: rgba(255, 255, 255, 0.25); /* Blended opacity */
-    letter-spacing: 1.5px; z-index: 100;
-    pointer-events: none; text-transform: uppercase;
+    font-size: 0.6rem; color: rgba(255, 255, 255, 0.25);
+    letter-spacing: 1.5px; z-index: 100; pointer-events: none; text-transform: uppercase;
 }
-
-/* --- SHAKE EFFECT --- */
-.impact-shake { animation: impact 0.8s cubic-bezier(.36,.07,.19,.97) both; }
-@keyframes impact {
-  0% { transform: scale(2); filter: blur(20px); }
-  20% { transform: scale(0.8) rotate(5deg); }
-  100% { transform: scale(1); filter: blur(0px); }
-}
-
-/* --- COUNTDOWN STYLING --- */
-#countdown-wrap { text-align: center; z-index: 20; transition: 0.5s; }
-.wait-text { font-family: 'Dancing Script', cursive; font-size: 2rem; color: var(--rose-pink); margin-bottom: 10px; }
-#timer-main { font-size: 4rem; font-weight: 600; letter-spacing: 5px; text-shadow: 0 0 20px var(--rose-pink); }
-.instruction { font-size: 0.8rem; opacity: 0.6; margin-top: 20px; letter-spacing: 2px; }
 
 /* --- MAIN MESSAGE CARD --- */
 .container {
-  display: none; position: relative; z-index: 10; text-align:center; padding: 50px 30px; 
-  width: 92%; max-width: 450px; background: var(--glass); backdrop-filter: blur(25px);
-  border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); animation: float 5s infinite ease-in-out;
+  position: relative; z-index: 10; text-align:center; padding: 40px 25px; 
+  width: 90%; max-width: 420px; background: var(--glass); backdrop-filter: blur(25px);
+  border-radius: 35px; border: 1px solid rgba(255,255,255,0.1); animation: float 5s infinite ease-in-out;
 }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-.text { font-family: 'Playfair Display', serif; font-size: 1.4rem; line-height: 1.8; min-height: 240px; }
+.text { font-family: 'Playfair Display', serif; font-size: 1.3rem; line-height: 1.7; min-height: 200px; }
 .shimmer {
-  font-family: 'Dancing Script', cursive; font-size: 2.6rem; display: block;
+  font-family: 'Dancing Script', cursive; font-size: 2.3rem; display: block;
   background: linear-gradient(90deg, #ff4d6d, #ffb703, #ff4d6d); background-size: 200% auto;
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   animation: shine 3s linear infinite;
 }
 @keyframes shine { to { background-position: 200% center; } }
 
-/* --- INTERACTION ASSETS --- */
 .stardust { position: absolute; pointer-events: none; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #fff; }
-button { margin-top: 30px; padding: 18px 40px; border: none; border-radius: 100px; font-weight: 600; cursor: pointer; transition: 0.4s; }
+button { margin-top: 25px; padding: 15px 35px; border: none; border-radius: 100px; font-weight: 600; cursor: pointer; transition: 0.4s; }
 .active { background: linear-gradient(45deg, #ff4d6d, #c9184a); color: white; box-shadow: 0 10px 30px rgba(201, 24, 74, 0.4); }
 .hidden { display: none; }
 .firework { position: fixed; width: 4px; height: 4px; border-radius: 50%; pointer-events: none; z-index: 20; }
@@ -79,18 +74,27 @@ button { margin-top: 30px; padding: 18px 40px; border: none; border-radius: 100p
 <div id="neb1" class="nebula"></div>
 <div id="neb2" class="nebula"></div>
 
-<div class="signature">By Priyanshu Chauhan</div>
-
-<div id="countdown-wrap">
-    <div class="wait-text">Wait for the magic, My Jaan...</div>
-    <div id="timer-main">00:00:00</div>
-    <div class="instruction">TAP THE SCREEN TO MAKE A WISH ✨</div>
+<div class="header-info">
+    <div class="info-pill">
+        <div class="pill-label">2026 Date</div>
+        <div class="pill-value" id="live-date">Jan 01, 2026</div>
+    </div>
+    <div class="info-pill">
+        <div class="pill-label">Together Since</div>
+        <div class="pill-value" id="journey-timer">0h 0m 0s</div>
+    </div>
+    <div class="info-pill">
+        <div class="pill-label">Clock</div>
+        <div class="pill-value" id="live-clock">00:00:00</div>
+    </div>
 </div>
+
+<div class="signature">By Priyanshu Chauhan</div>
 
 <div class="container" id="main-card">
   <div class="text" id="text"></div>
-  <button id="tapBtn" class="active">Come Closer ❤️</button>
-  <button id="waBtn" class="hidden active">Tell Me You're Mine 💬❤️</button>
+  <button id="tapBtn" class="active">Start Our Year ❤️</button>
+  <button id="waBtn" class="hidden active">Reply To Priyanshu 💬❤️</button>
 </div>
 
 <audio id="bgMusic" loop>
@@ -98,85 +102,62 @@ button { margin-top: 30px; padding: 18px 40px; border: none; border-radius: 100p
 </audio>
 
 <script>
-const targetDate = new Date("January 1, 2026 00:00:00").getTime();
-const timerEl = document.getElementById('timer-main');
-const countdownWrap = document.getElementById('countdown-wrap');
-const mainCard = document.getElementById('main-card');
 const textEl = document.getElementById("text");
 const tapBtn = document.getElementById("tapBtn");
 const waBtn = document.getElementById("waBtn");
 const music = document.getElementById('bgMusic');
 
-let celebrationStarted = false;
+// --- CLOCK & JOURNEY TIMER ---
+function updateLiveInfo() {
+    const now = new Date();
+    
+    // 1. Clock
+    document.getElementById('live-clock').textContent = now.toLocaleTimeString([], { hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
-// CLICK TO ACTIVATE
+    // 2. Date
+    const options = { month: 'short', day: '2-digit', year: 'numeric' };
+    document.getElementById('live-date').textContent = now.toLocaleDateString('en-US', options);
+
+    // 3. Journey Timer (Time since Midnight Jan 1, 2026)
+    const startOf2026 = new Date("January 1, 2026 00:00:00").getTime();
+    const diff = now.getTime() - startOf2026;
+    
+    const h = Math.floor(diff / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+    document.getElementById('journey-timer').textContent = `${h}h ${m}m ${s}s`;
+}
+setInterval(updateLiveInfo, 1000);
+updateLiveInfo();
+
+// CLICK TO ACTIVATE MUSIC
 document.body.addEventListener('mousedown', (e) => {
     createStardust(e.pageX, e.pageY);
     if(music.paused) music.play();
 });
 
 function createStardust(x, y) {
-    for(let i=0; i<8; i++) {
-        const s = document.createElement('div');
-        s.className = 'stardust';
-        s.style.left = x + 'px'; s.style.top = y + 'px';
-        const size = Math.random() * 4 + 'px';
-        s.style.width = s.style.height = size;
-        document.body.appendChild(s);
-        const angle = Math.random() * Math.PI * 2;
-        const dist = Math.random() * 100;
-        s.animate([
-            { transform: 'translate(0,0) scale(1)', opacity: 1 },
-            { transform: `translate(${Math.cos(angle)*dist}px, ${Math.sin(angle)*dist}px) scale(0)`, opacity: 0 }
-        ], 1000);
-        setTimeout(() => s.remove(), 1000);
-    }
+    const s = document.createElement('div');
+    s.className = 'stardust';
+    s.style.left = x + 'px'; s.style.top = y + 'px';
+    s.style.width = s.style.height = '3px';
+    document.body.appendChild(s);
+    s.animate([{ opacity: 1 }, { opacity: 0, transform: 'translateY(30px)' }], 1000);
+    setTimeout(() => s.remove(), 1000);
 }
 
-// THE REAL-TIME CHECK
-function update() {
-    const now = new Date().getTime();
-    const diff = targetDate - now;
-
-    if (diff > 0) {
-        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((diff % (1000 * 60)) / 1000);
-        timerEl.textContent = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
-    } else {
-        if (!celebrationStarted) { startCelebration(); }
-    }
-}
-
-function startCelebration() {
-    celebrationStarted = true;
-    countdownWrap.style.display = 'none';
-    document.body.classList.add('impact-shake');
-    
-    for(let i=0; i<15; i++) {
-        setTimeout(() => createFirework(Math.random()*window.innerWidth, Math.random()*window.innerHeight), i*200);
-    }
-
-    setTimeout(() => {
-        mainCard.style.display = 'block';
-        typeScene(scenes[0]);
-    }, 1000);
-}
-
-// ROMANTIC CONTENT
 const scenes = [
-  "✨ <span class='shimmer'>HAPPY NEW YEAR, MY JAAN!</span><br><br>The first breath I took in 2026 was dedicated to <span class='shimmer'>YOU</span> ❤️",
-  "Mera pyaara sa baccha, every second of that countdown was a heartbeat for you.",
-  "New year, new resolutions... but you are my forever constant.",
-  "I promise to love you even more than I did in 2025.",
-  "You are my moon, my star, and my entire universe.",
-  "Stay with me? Today, tomorrow, and every day of 2026. ❤️"
+  "✨ <span class='shimmer'>HAPPY NEW YEAR, MY JAAN!</span><br><br>The year 2026 is officially here, and my heart has never felt more full. ❤️",
+  "Look at the timer above... we've already spent our first minutes of 2026 together. Every second belongs to you.",
+  "Mera pyaara sa baccha, thank you for being the most beautiful part of my 2025.",
+  "In this brand new year, I promise to be your strength, your peace, and your biggest love.",
+  "You are my moon, my stars, and my entire universe.",
+  "Stay with me? Today, tomorrow, and every single day of 2026. I love you! ❤️"
 ];
 
 let step = 0;
 function typeScene(html) {
-  tapBtn.style.opacity = "0.2";
-  tapBtn.disabled = true;
+  tapBtn.style.opacity = "0.2"; tapBtn.disabled = true;
   textEl.innerHTML = "";
   let i = 0;
   const typer = setInterval(() => {
@@ -184,8 +165,7 @@ function typeScene(html) {
     i++;
     if (i >= html.length) {
       clearInterval(typer);
-      tapBtn.style.opacity = "1";
-      tapBtn.disabled = false;
+      tapBtn.style.opacity = "1"; tapBtn.disabled = false;
     }
   }, 50);
 }
@@ -203,30 +183,30 @@ tapBtn.onclick = () => {
 };
 
 function createFirework(x, y) {
-  const colors = ['#ff4d6d', '#ffb703', '#fff', '#c9184a'];
-  for (let i = 0; i < 40; i++) {
+  const colors = ['#ff4d6d', '#ffb703', '#fff'];
+  for (let i = 0; i < 30; i++) {
     const f = document.createElement("div");
     f.className = "firework";
     f.style.left = x + "px"; f.style.top = y + "px";
     f.style.background = colors[Math.floor(Math.random()*colors.length)];
     const angle = Math.random() * Math.PI * 2;
-    const velocity = 50 + Math.random() * 200;
+    const velocity = 50 + Math.random() * 150;
     f.animate([
       { transform: 'translate(0, 0)', opacity: 1 },
       { transform: `translate(${Math.cos(angle)*velocity}px, ${Math.sin(angle)*velocity}px)`, opacity: 0 }
-    ], 1500);
+    ], 1000);
     document.body.appendChild(f);
-    setTimeout(() => f.remove(), 1500);
+    setTimeout(() => f.remove(), 1000);
   }
 }
 
+// Start first scene
+typeScene(scenes[0]);
+
 waBtn.onclick = () => {
-  const msg = encodeURIComponent("I'm yours forever......MY LOVE PLEASE CONTINUE..");
+  const msg = encodeURIComponent("Happy New Year 2026, Priyanshu! ❤️ Our journey has officially started.");
   window.location.href = "https://wa.me/919026395740?text=" + msg;
 };
-
-setInterval(update, 1000);
-update();
 </script>
 
 </body>
